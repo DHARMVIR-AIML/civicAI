@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile - JanSudhar</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="profile-page">
+
+<header>
+    <h1>JanSudhar</h1>
+
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="complaint.html">New Complaint</a>
+        <a href="tracking.html">Track Complaint</a>
+    </nav>
+</header>
+
+
+<main class="profile-wrapper">
+
+    <div class="profile-card">
+
+        <!-- Profile Header -->
+        <div class="profile-top">
+
+            <div class="profile-avatar">
+                👤
+            </div>
+
+            <h2>My Profile</h2>
+
+            <p>Manage your JanSudhar account</p>
+
+        </div>
+
+
+        <!-- User Information -->
+        <div class="profile-info">
+
+            <div class="info-box">
+                <span class="info-icon">👤</span>
+
+                <div>
+                    <small>Full Name</small>
+                    <strong id="name">Loading...</strong>
+                </div>
+            </div>
+
+
+            <div class="info-box">
+                <span class="info-icon">✉️</span>
+
+                <div>
+                    <small>Email Address</small>
+                    <strong id="email">Loading...</strong>
+                </div>
+            </div>
+
+
+            <div
+    class="info-box complaint-count-box"
+    id="totalComplaintBox"
+    onclick="viewMyComplaints()"
+    title="Click to view your complaints"
+>
+    <span class="info-icon">📋</span>
+
+    <div>
+        <small>Total Complaints</small>
+        <strong id="totalComplaint">0</strong>
+    </div>
+
+    <span class="complaint-arrow">→</span>
+</div>
+
+        </div>
+
+
+        <!-- Quick Actions -->
+        <div class="profile-actions">
+
+            <h3>Quick Actions</h3>
+
+            <div class="action-buttons">
+
+                <a href="complaint.html" class="profile-action">
+                    📝
+                    <span>Submit Complaint</span>
+                </a>
+
+                <a href="tracking.html" class="profile-action">
+                    🔍
+                    <span>Track Complaint</span>
+                </a>
+
+                <a href="dashboard.html" class="profile-action">
+    🏠
+    <span>Dashboard</span>
+</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Account Status -->
+        <div class="account-status">
+
+            <div>
+                <span class="status-dot"></span>
+                <strong>Account Active</strong>
+            </div>
+
+            <span class="secure-text">
+                🔒 Secure Account
+            </span>
+
+        </div>
+
+
+        <!-- Logout -->
+        <button
+            class="logout-btn"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</main>
+
+
+<script src="js/profile.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JanSudhar - Development Suggestion</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Leaflet CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h1>Development Suggestion</h1>
+
+    <form id="suggestionForm">
+
+        <!-- Suggestion Title -->
+        <label for="title">Suggestion Title</label>
+
+        <input
+            type="text"
+            id="title"
+            placeholder="Example: New school is needed in our area"
+            required
+        >
+
+        <!-- Development Category -->
+        <label for="category">Development Category</label>
+
+        <select id="category" required>
+            <option value="">Select category</option>
+            <option value="Road">Road</option>
+            <option value="Water">Water Supply</option>
+            <option value="Electricity">Electricity</option>
+            <option value="Sanitation">Sanitation</option>
+            <option value="Education">Education</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Public Transport">Public Transport</option>
+            <option value="Employment">Employment</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <!-- Description -->
+        <label for="description">Describe the Development Need</label>
+
+        <textarea
+            id="description"
+            placeholder="Explain what development work is needed and why..."
+            rows="6"
+            required
+        ></textarea>
+
+        <!-- Location -->
+        <label for="location">Location</label>
+
+        <input
+            type="text"
+            id="location"
+            placeholder="Select location from map"
+            readonly
+            required
+        >
+
+        <!-- Map -->
+        <div
+            id="map"
+            style="height:400px; width:100%; margin-top:10px;">
+        </div>
+
+        <!-- Photo -->
+        <label for="photo">Photo Evidence</label>
+
+        <input
+            type="file"
+            id="photo"
+            accept="image/*"
+        >
+
+        <!-- Photo Preview -->
+        <img
+            id="preview"
+            width="250"
+            style="display:none; margin-top:15px; border-radius:10px;"
+        >
+
+        <!-- Submit -->
+        <button type="submit">
+            Submit Suggestion
+        </button>
+
+    </form>
+
+</div>
+
+<!-- Leaflet JS -->
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+<!-- Suggestion JavaScript -->
+<script src="js/suggestion.js"></script>
+
+</body>
+</html><a
+    href="data-fusion.html"
+    class="admin-action-card"
+    style="text-decoration:none; color:inherit;"
+>
+
+    <div class="admin-action-icon">
+        🌐
+    </div>
+
+    <div>
+
+        <h3>
+            Data Fusion
+        </h3>
+
+        <p>
+            Combine citizen demand with demographic
+            and infrastructure data.
+        </p>
+
+    </div>
+
+    <span class="admin-action-arrow">
+        →
+    </span>
+
+</a>

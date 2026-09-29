@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - JanSudhar</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="login-page">
+
+    <div class="login-card">
+
+        
+        <div class="login-logo">
+            🏛️
+        </div>
+
+        <h1>JanSudhar</h1>
+
+        <h2>Welcome Back</h2>
+
+        <p class="login-subtitle">
+            Login to your JanSudhar account
+        </p>
+
+
+        <!-- ================= USER LOGIN FORM ================= -->
+
+        <form id="loginForm">
+
+            <label for="email">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+            >
+
+
+            <!-- Forgot Password -->
+
+            <div class="forgot-password-container">
+
+                <a
+                    href="forgot-password.html"
+                    class="forgot-password"
+                >
+                    Forgot Password?
+                </a>
+
+            </div>
+
+
+            <button type="submit">
+                Login to JanSudhar
+            </button>
+
+        </form>
+
+
+        <!-- ================= ADMIN LOGIN ================= -->
+
+        <div class="admin-login-link">
+
+            <div class="admin-login-divider">
+                <span>OR</span>
+            </div>
+
+            <p>
+                Are you an administrator?
+            </p>
+
+            <a
+                href="https://10.65.152.42:5000/admin-login.html"
+                class="admin-login-button"
+            >
+
+                <span class="admin-login-icon">
+                    🛡️
+                </span>
+
+                <span>
+                    Admin Login
+                </span>
+
+                <span class="admin-login-arrow">
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- ================= REGISTER ================= -->
+
+        <p class="register-text">
+
+            Don't have an account?
+
+            <a href="register.html">
+                Create an account
+            </a>
+
+        </p>
+
+
+        <!-- ================= BACK HOME ================= -->
+
+        <a
+            href="index.html"
+            class="back-home"
+        >
+            ← Back to Home
+        </a>
+
+    </div>
+
+
+    <script src="js/login.js"></script>
+
+</body>
+</html>

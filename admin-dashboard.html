@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - JanSudhar</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="admin-dashboard-page">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="admin-dashboard-header">
+
+        <div class="admin-brand">
+            <div class="admin-brand-icon">
+                🛡️
+            </div>
+
+            <div>
+                <h2>JanSudhar</h2>
+                <span>Admin Panel</span>
+            </div>
+        </div>
+
+
+        <div class="admin-header-right">
+
+            <div class="admin-user-info">
+                <span class="admin-user-icon">👤</span>
+
+                <div>
+                    <strong id="adminName">Admin</strong>
+                    <small>Administrator</small>
+                </div>
+            </div>
+
+            <button id="adminLogoutBtn" class="admin-logout-btn">
+                🚪 Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="admin-dashboard-container">
+
+        <section class="admin-welcome-section">
+
+            <div>
+                <span class="admin-section-label">
+                    JanSudhar ADMINISTRATION
+                </span>
+
+                <h1>Dashboard</h1>
+
+                <p>
+                    Monitor and manage civic complaints from one place.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- ================= STAT CARDS ================= -->
+
+        <section class="admin-stats-grid">
+
+            <div class="admin-stat-card total">
+
+                <div class="admin-stat-icon">
+                    📋
+                </div>
+
+                <div>
+                    <span>Total Complaints</span>
+                    <h2 id="totalComplaints">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card pending">
+
+                <div class="admin-stat-icon">
+                    ⏳
+                </div>
+
+                <div>
+                    <span>Pending</span>
+                    <h2 id="pendingComplaints">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card in-progress-card">
+    <div class="admin-stat-icon">🔄</div>
+
+    <div>
+        <span>In Progress</span>
+        <h2 id="progressComplaints">0</h2>
+    </div>
+</div>
+
+
+            <div class="admin-stat-card resolved">
+
+                <div class="admin-stat-icon">
+                    ✅
+                </div>
+
+                <div>
+                    <span>Resolved</span>
+                    <h2 id="resolvedComplaints">0</h2>
+                </div>
+
+            </div>
+
+        </section>
+       
+        <!-- ================= AI OVERVIEW ================= -->
+
+<section class="admin-dashboard-section">
+
+    <div class="admin-section-heading">
+
+        <div>
+            <span class="admin-section-label">
+                ARTIFICIAL INTELLIGENCE
+            </span>
+
+            <h2>AI Complaint Insights</h2>
+        </div>
+
+    </div>
+
+
+    <div class="admin-ai-overview-grid">
+
+        <!-- HIGH PRIORITY -->
+
+        <div class="admin-ai-card">
+
+            <div class="admin-ai-card-icon">
+                🔴
+            </div>
+
+            <div>
+                <span>
+                    High Priority
+                </span>
+
+                <h3 id="highPriorityCount">
+                    0
+                </h3>
+            </div>
+
+        </div>
+
+
+        <!-- MEDIUM PRIORITY -->
+
+        <div class="admin-ai-card">
+
+            <div class="admin-ai-card-icon">
+                🟠
+            </div>
+
+            <div>
+                <span>
+                    Medium Priority
+                </span>
+
+                <h3 id="mediumPriorityCount">
+                    0
+                </h3>
+            </div>
+
+        </div>
+
+
+        <!-- LOW PRIORITY -->
+
+        <div class="admin-ai-card">
+
+            <div class="admin-ai-card-icon">
+                🟢
+            </div>
+
+            <div>
+                <span>
+                    Low Priority
+                </span>
+
+                <h3 id="lowPriorityCount">
+                    0
+                </h3>
+            </div>
+
+        </div>
+
+
+        <!-- TOP CATEGORY -->
+
+        <div class="admin-ai-card admin-ai-category-card">
+
+            <div class="admin-ai-card-icon">
+                🤖
+            </div>
+
+            <div>
+                <span>
+                    Most Detected Category
+                </span>
+
+                <h3 id="topAICategory">
+                    No Data
+                </h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+       <!-- ================= QUICK ACTIONS ================= -->
+
+<section class="admin-dashboard-section">
+
+    <div class="admin-section-heading">
+
+        <div>
+            <span class="admin-section-label">
+                MANAGEMENT
+            </span>
+
+            <h2>Quick Actions</h2>
+        </div>
+
+    </div>
+
+
+    <div class="admin-actions-grid">
+
+        <!-- MANAGE COMPLAINTS -->
+
+        <button class="admin-action-card" id="manageComplaintsBtn">
+
+            <div class="admin-action-icon">
+                📋
+            </div>
+
+            <div>
+                <h3>Manage Complaints</h3>
+
+                <p>
+                    View and manage all submitted complaints.
+                </p>
+            </div>
+
+            <span class="admin-action-arrow">
+                →
+            </span>
+
+        </button>
+
+
+        <!-- COMPLAINT ACTIVITY -->
+
+<button class="admin-action-card" id="complaintActivityBtn">
+
+    <div class="admin-action-icon">
+        📋
+    </div>
+
+    <div>
+        <h3>Complaint Activity</h3>
+
+        <p>
+            View user complaint activity and history.
+        </p>
+    </div>
+
+    <span class="admin-action-arrow">
+        →
+    </span>
+
+</button>
+
+        <!-- STATISTICS -->
+
+        <a
+            href="statistics.html"
+            class="admin-action-card"
+            id="statisticsBtn"
+            style="text-decoration: none; color: inherit;"
+        >
+
+            <div class="admin-action-icon">
+                📊
+            </div>
+
+            <div>
+                <h3>Statistics</h3>
+
+                <p>
+                    View complaint statistics and reports.
+                </p>
+            </div>
+
+            <span class="admin-action-arrow">
+                →
+            </span>
+
+        </a>
+<!-- BUDGET OPTIMIZER -->
+
+<a
+    href="budget-optimizer.html"
+    class="admin-action-card"
+    id="budgetOptimizerBtn"
+    style="text-decoration: none; color: inherit;"
+>
+
+    <div class="admin-action-icon">
+        💰
+    </div>
+
+    <div>
+        <h3>Budget Optimizer</h3>
+
+        <p>
+            Analyze complaints and distribute development budget intelligently.
+        </p>
+    </div>
+
+    <span class="admin-action-arrow">
+        →
+    </span>
+
+</a>
+
+
+        <!-- MANAGE ADMINS -->
+
+        <button
+            class="admin-action-card"
+            id="manageAdminsBtn"
+            style="display: none;"
+        >
+
+            <div class="admin-action-icon">
+                👥
+            </div>
+
+            <div>
+                <h3>Manage Admins</h3>
+
+                <p>
+                    Add and manage administrator accounts.
+                </p>
+            </div>
+
+            <span class="admin-action-arrow">
+                →
+            </span>
+
+        </button>
+
+    </div>
+
+</section>
+
+        <!-- ================= RECENT COMPLAINTS ================= -->
+
+        <section class="admin-dashboard-section">
+
+            <div class="admin-section-heading">
+
+                <div>
+                    <span class="admin-section-label">
+                        OVERVIEW
+                    </span>
+
+                    <h2>Recent Complaints</h2>
+                </div>
+
+                <button class="admin-view-all-btn" id="viewAllComplaintsBtn">
+                    View All →
+                </button>
+
+            </div>
+
+
+            <div class="admin-recent-table-wrapper">
+
+                <table class="admin-recent-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Complaint ID</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="recentComplaintsBody">
+
+                        <tr>
+                            <td colspan="5" class="admin-empty-state">
+                                No complaints available yet.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/admin-dashboard.js"></script>
+
+</body>
+
+</html>

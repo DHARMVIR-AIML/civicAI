@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JanSudhar - Submit Complaint</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Leaflet CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+</head>
+
+<body class="complaint-page">
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+        <h1>JanSudhar</h1>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="tracking.html">Track complaint</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+    </header>
+
+
+    <!-- ================= COMPLAINT SECTION ================= -->
+
+    <main class="complaint-wrapper">
+
+        <div class="complaint-card">
+
+            <div class="complaint-icon">
+                📝
+            </div>
+
+            <h2>Submit a Request</h2>
+
+            <p class="complaint-subtitle">
+                Report a civic issue and help make your community better.
+            </p>
+
+
+            <!-- ================= FORM ================= -->
+
+            <form id="complaintForm">
+
+                <!-- Complaint Title -->
+
+                <div class="complaint-field">
+
+                    <label for="title">
+                        Complaint Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="Enter complaint title"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Request Type -->
+
+                <div class="complaint-field">
+
+                    <label for="requestType">
+                        Request Type
+                    </label>
+
+                    <select id="requestType" required>
+
+                        <option value="">
+                            Select request type
+                        </option>
+
+                        <option value="Complaint">
+                            Complaint
+                        </option>
+
+                        <option value="Development Need">
+                            Development Need
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Category -->
+
+                <div class="complaint-field">
+
+                    <label for="category">
+                        Category
+                    </label>
+
+                    <select id="category" required>
+
+                        <option value="">
+                            Select category
+                        </option>
+
+                        <option value="Road">
+                            Road
+                        </option>
+
+                        <option value="Water">
+                            Water
+                        </option>
+
+                        <option value="Electricity">
+                            Electricity
+                        </option>
+
+                        <option value="Garbage">
+                            Garbage
+                        </option>
+
+                        <option value="Street Light">
+                            Street Light
+                        </option>
+
+                        <option value="Drainage">
+                            Drainage
+                        </option>
+
+                        <option value="Education">
+                            Education
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Description -->
+
+                <div class="complaint-field">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        placeholder="Describe the issue in detail..."
+                        rows="5"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+            
+<!-- Location -->
+<div class="complaint-field">
+
+    <label for="location">
+        📍 Location
+    </label>
+
+    <div class="location-search-wrapper">
+
+        <input
+            type="text"
+            id="location"
+            placeholder="Type your location..."
+            autocomplete="off"
+            required>
+
+        <div
+            id="locationSuggestions"
+            class="location-suggestions">
+        </div>
+
+    </div>
+
+</div>
+                <!-- ================= MAP ================= -->
+
+                <div class="map-section">
+
+                    <div class="map-heading">
+
+                        <span>
+                            📍 Select Location
+                        </span>
+
+                        <small>
+                            Click on the map
+                        </small>
+
+                    </div>
+
+                    <div id="map"></div>
+
+                </div>
+
+
+                <!-- ================= PHOTO ================= -->
+
+                <div class="complaint-field photo-field">
+
+                    <label for="photo">
+                        📷 Upload Photo
+                    </label>
+
+                    <input
+                        type="file"
+                        id="photo"
+                        name="photo"
+                        accept="image/*"
+                    >
+
+                </div>
+
+
+                <!-- ================= PHOTO PREVIEW ================= -->
+
+                <img
+                    id="preview"
+                    width="250"
+                    alt="Photo preview"
+                    style="
+                        display:none;
+                        margin-top:15px;
+                        border-radius:10px;
+                    "
+                >
+
+
+                <!-- ================= SUBMIT ================= -->
+
+                <button
+                    type="submit"
+                    class="complaint-submit"
+                >
+                    Submit Request
+                </button>
+
+            </form>
+<a href="dashboard.html" class="back-dashboard">
+            ← Back to dashboard
+        </a>
+        </div>
+
+    </main>
+
+
+    <!-- ================= LEAFLET JS ================= -->
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
+
+
+    <!-- ================= COMPLAINT JS ================= -->
+
+    <script src="js/complaint.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Complaints - JanSudhar</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        .my-complaints-page {
+            background: #f5f7fb;
+            min-height: 100vh;
+        }
+
+        .complaints-wrapper {
+            max-width: 1150px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .complaints-header {
+            margin-bottom: 25px;
+        }
+
+        .complaints-header h2 {
+            margin: 0 0 8px;
+            font-size: 30px;
+            color: #111827;
+        }
+
+        .complaints-header p {
+            margin: 0;
+            color: #64748b;
+        }
+
+        .complaint-summary {
+            background: white;
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .complaint-summary strong {
+            font-size: 28px;
+            color: #4f46e5;
+        }
+
+        .complaints-table-box {
+            background: white;
+            border-radius: 16px;
+            overflow-x: auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .complaints-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        .complaints-table th {
+            background: #f8fafc;
+            color: #475569;
+            font-size: 14px;
+            text-align: left;
+            padding: 18px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .complaints-table td {
+            padding: 18px;
+            border-bottom: 1px solid #eef2f7;
+            color: #334155;
+        }
+
+        .complaints-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .complaint-id {
+            font-weight: 700;
+            color: #4f46e5;
+        }
+
+        .complaint-title {
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 7px 13px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: #fff7ed;
+            color: #c2410c;
+        }
+
+        .status-progress {
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        .status-resolved {
+            background: #ecfdf5;
+            color: #059669;
+        }
+
+        .empty-complaints {
+            text-align: center;
+            padding: 50px 20px;
+            color: #64748b;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 11px 20px;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .back-btn:hover {
+            background: #4338ca;
+        }
+
+        .loading-text {
+            text-align: center;
+            padding: 50px;
+            color: #64748b;
+        }
+        /* ===============================
+   OPEN COMPLAINT BUTTON
+=============================== */
+
+.open-complaint-btn {
+    border: none;
+    background: #2563eb;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.open-complaint-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.open-complaint-btn:active {
+    transform: translateY(0);
+}
+
+    </style>
+
+</head>
+
+
+<body class="my-complaints-page">
+
+
+<header>
+
+    <h1>JanSudhar</h1>
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+        <a href="complaint.html">
+            New Complaint
+        </a>
+
+        <a href="tracking.html">
+            Track Complaint
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="complaints-wrapper">
+
+
+    <!-- HEADER -->
+
+    <div class="complaints-header">
+
+        <h2>
+            My Complaints
+        </h2>
+
+        <p>
+            View all complaints submitted from your account.
+        </p>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="complaint-summary">
+
+        <span>
+            Total Complaints
+        </span>
+
+        <br>
+
+        <strong id="totalComplaints">
+            0
+        </strong>
+
+    </div>
+
+
+    <!-- TABLE -->
+
+    <div class="complaints-table-box">
+
+        <table class="complaints-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Complaint ID
+                    </th>
+
+                    <th>
+                        Title
+                    </th>
+
+                    <th>
+                        Date
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+                   
+                    <th>
+                        Action
+
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="complaintsTableBody">
+
+                <tr>
+
+                    <td
+                        colspan="5"
+                        class="loading-text"
+                    >
+                        Loading complaints...
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <a
+        href="profile.html"
+        class="back-btn"
+    >
+        ← Back to Profile
+    </a>
+
+
+</main>
+
+
+<script src="js/my-complaints.js"></script>
+
+</body>
+
+</html>

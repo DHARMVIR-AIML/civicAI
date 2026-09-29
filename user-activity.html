@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>User Complaint Activity - JanSudhar</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        .user-activity-page {
+            background: #f5f7fb;
+            min-height: 100vh;
+        }
+
+        .user-activity-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 35px 20px;
+        }
+
+        .activity-header {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .activity-header h1 {
+            margin: 0 0 8px;
+        }
+
+        .activity-header p {
+            margin: 0;
+            color: #64748b;
+        }
+
+        .back-btn {
+            margin-bottom: 25px;
+            border: none;
+            background: #475569;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            overflow-x: auto;
+        }
+
+        .activity-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        .activity-table th,
+        .activity-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .activity-table th {
+            background: #f8fafc;
+            font-weight: 700;
+            color: #334155;
+        }
+
+        .activity-table tr:hover {
+            background: #f8fafc;
+        }
+
+        .complaint-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 38px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+
+        .view-complaints-btn {
+            border: none;
+            background: #2563eb;
+            color: white;
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .view-complaints-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .loading-message,
+        .empty-message {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+        }
+
+        .user-name {
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .user-email {
+            color: #64748b;
+        }
+
+        @media (max-width: 768px) {
+
+            .user-activity-container {
+                padding: 20px 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="user-activity-page">
+
+
+    <!-- HEADER -->
+
+    <header class="admin-dashboard-header">
+
+        <div class="admin-brand">
+
+            <div class="admin-brand-icon">
+                🛡️
+            </div>
+
+            <div>
+
+                <h2>JanSudhar</h2>
+
+                <span>
+                    Admin Panel
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="admin-header-right">
+
+            <button
+                id="adminLogoutBtn"
+                class="admin-logout-btn"
+            >
+                🚪 Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+    <main class="user-activity-container">
+
+
+        <button
+            class="back-btn"
+            id="backBtn"
+        >
+            ← Back to Dashboard
+        </button>
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="activity-header">
+
+            <h1>
+                User Complaint Activity
+            </h1>
+
+            <p>
+                View users and the total number of complaints submitted by each user.
+            </p>
+
+        </section>
+
+
+        <!-- TABLE -->
+
+        <section class="activity-card">
+
+            <table class="activity-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            User Name
+                        </th>
+
+                        <th>
+                            Email ID
+                        </th>
+
+                        <th>
+                            Total Complaints
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="usersTableBody">
+
+                    <tr>
+
+                        <td
+                            colspan="4"
+                            class="loading-message"
+                        >
+                            Loading users...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="js/user-activity.js"></script>
+
+</body>
+
+</html>

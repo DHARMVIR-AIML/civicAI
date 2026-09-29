@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>User Complaints - JanSudhar</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        .user-complaints-page {
+            background: #f5f7fb;
+            min-height: 100vh;
+        }
+
+
+        .user-complaints-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 35px 20px;
+        }
+
+
+        .user-details-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+
+        .user-details-card h1 {
+            margin: 0 0 8px;
+        }
+
+
+        .user-details-card p {
+            margin: 5px 0;
+            color: #64748b;
+        }
+
+
+        .complaints-count {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+
+        .complaint-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+
+        .complaint-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+
+        .complaint-id {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+
+        .complaint-status {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+
+        .status-progress {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+
+        .status-resolved {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+
+        .complaint-info-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 16px;
+        }
+
+
+        .complaint-info-item {
+            padding: 14px;
+            background: #f8fafc;
+            border-radius: 10px;
+        }
+
+
+        .complaint-info-item.full-width {
+            grid-column: 1 / -1;
+        }
+
+
+        .complaint-info-item strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #334155;
+        }
+
+
+        .complaint-info-item span {
+            color: #475569;
+            word-break: break-word;
+        }
+
+
+        .priority-high {
+            color: #dc2626 !important;
+            font-weight: 700;
+        }
+
+
+        .priority-medium {
+            color: #d97706 !important;
+            font-weight: 700;
+        }
+
+
+        .priority-low {
+            color: #16a34a !important;
+            font-weight: 700;
+        }
+
+
+        .open-complaint-btn {
+            margin-top: 20px;
+            border: none;
+            background: #2563eb;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+
+        .open-complaint-btn:hover {
+            background: #1d4ed8;
+        }
+
+
+        .back-btn {
+            margin-bottom: 25px;
+            border: none;
+            background: #475569;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+
+        .loading-message,
+        .empty-message {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            color: #64748b;
+        }
+
+
+        @media (max-width: 768px) {
+
+            .complaint-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .complaint-info-item.full-width {
+                grid-column: auto;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="user-complaints-page">
+
+
+    <!-- HEADER -->
+
+    <header class="admin-dashboard-header">
+
+        <div class="admin-brand">
+
+            <div class="admin-brand-icon">
+                🛡️
+            </div>
+
+            <div>
+
+                <h2>JanSudhar</h2>
+
+                <span>
+                    Admin Panel
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="admin-header-right">
+
+            <button
+                id="adminLogoutBtn"
+                class="admin-logout-btn"
+            >
+                🚪 Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+    <main class="user-complaints-container">
+
+
+        <button
+            class="back-btn"
+            id="backBtn"
+        >
+            ← Back to Dashboard
+        </button>
+
+
+        <!-- USER INFORMATION -->
+
+        <section
+            class="user-details-card"
+            id="userDetails"
+        >
+
+            <h1>
+                User Complaints
+            </h1>
+
+            <p>
+                Loading user information...
+            </p>
+
+        </section>
+
+
+        <!-- COMPLAINTS -->
+
+        <section>
+
+            <div
+                id="complaintsContainer"
+            >
+
+                <div class="loading-message">
+                    Loading complaints...
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="js/user-complaints.js"></script>
+
+</body>
+
+</html>

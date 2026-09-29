@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Complaints - JanSudhar</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="admin-dashboard-page">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="admin-dashboard-header">
+
+        <div class="admin-brand">
+
+            <div class="admin-brand-icon">
+                🛡️
+            </div>
+
+            <div>
+                <h2>JanSudhar</h2>
+                <span>Admin Panel</span>
+            </div>
+
+        </div>
+
+
+        <div class="admin-header-right">
+
+            <div class="admin-user-info">
+
+                <span class="admin-user-icon">
+                    👤
+                </span>
+
+                <div>
+
+                    <strong id="adminName">
+                        Admin
+                    </strong>
+
+                    <small>
+                        Administrator
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="adminLogoutBtn"
+                class="admin-logout-btn">
+
+                🚪 Logout
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="admin-dashboard-container">
+
+
+        <!-- BACK -->
+
+        <button
+            id="backToDashboardBtn"
+            class="complaint-back-btn">
+
+            ← Back to Dashboard
+
+        </button>
+
+
+        <!-- PAGE HEADING -->
+
+        <section class="admin-welcome-section">
+
+            <span class="admin-section-label">
+                COMPLAINT MANAGEMENT
+            </span>
+
+            <h1>
+                Manage Complaints
+            </h1>
+
+            <p>
+                Search, filter and manage all civic complaints.
+            </p>
+
+        </section>
+
+
+        <!-- ================= FILTER AREA ================= -->
+
+        <section class="complaint-management-toolbar">
+
+
+            <!-- SEARCH -->
+
+            <div class="complaint-search-box">
+
+                <span>
+                    🔎
+                </span>
+
+                <input
+                    type="text"
+                    id="complaintSearch"
+                    placeholder="Search by Complaint ID or title..."
+                >
+
+            </div>
+
+
+            <!-- STATUS FILTER -->
+
+            <select id="statusFilter">
+
+                <option value="All">
+                    All Status
+                </option>
+
+                <option value="Pending">
+                    Pending
+                </option>
+
+                <option value="In Progress">
+                    In Progress
+                </option>
+
+                <option value="Resolved">
+                    Resolved
+                </option>
+
+            </select>
+
+
+            <!-- CATEGORY FILTER -->
+
+            <select id="categoryFilter">
+
+                <option value="All">
+                    All Categories
+                </option>
+
+                <option value="Road">
+                    Road
+                </option>
+
+                <option value="Water">
+                    Water
+                </option>
+
+                <option value="Electricity">
+                    Electricity
+                </option>
+
+                <option value="Garbage">
+                    Garbage
+                </option>
+
+                <option value="Street Light">
+                    Street Light
+                </option>
+
+                <option value="Drainage">
+                    Drainage
+                </option>
+
+                <option value="Education">
+                    Education
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+
+        </section>
+      <select id="requestTypeFilter">
+
+    <option value="All">
+        All Request Types
+    </option>
+
+    <option value="Complaint">
+        Complaint
+    </option>
+
+    <option value="Development Need">
+        Development Need
+    </option>
+
+</select>
+
+<button
+    type="button"
+    id="resetComplaintFilters"
+    class="admin-open-btn">
+
+    Reset Filters
+
+</button>
+
+        <!-- ================= COMPLAINT COUNT ================= -->
+
+        <div class="complaint-management-summary">
+
+            <span>
+                Total Complaints:
+            </span>
+
+            <strong id="managementComplaintCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <!-- ================= TABLE ================= -->
+
+        <section class="admin-recent-table-wrapper">
+
+            <table class="admin-recent-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Complaint ID
+                        </th>
+
+                        <th>
+                            Title
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                        <th>
+                            Request Type
+                        </th>
+
+                        <th>
+                           AI Category
+                        </th>
+
+                         <th>
+                           Priority
+                       </th>
+
+                     <th>
+                         Department
+                    </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="complaintsTableBody">
+
+                    <tr>
+
+                        <td
+                            colspan="6"
+                            class="admin-empty-state">
+
+                            Loading complaints...
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="js/complaint-management.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AI JanSudhar Assistant - JanSudhar</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="ai-assistant-page">
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="ai-header">
+
+        <div class="ai-header-logo">
+            🏛️ JanSudhar
+        </div>
+
+        <a
+            href="dashboard.html"
+            class="ai-back-btn"
+        >
+            ← Dashboard
+        </a>
+
+    </header>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="ai-assistant-wrapper">
+
+
+        <!-- ================= AI CARD ================= -->
+
+        <section class="ai-assistant-card">
+
+
+            <!-- AI ICON -->
+
+            <div class="ai-big-icon">
+                🤖
+            </div>
+
+
+            <h1>
+                AI JanSudhar Assistant
+            </h1>
+
+
+            <p class="ai-subtitle">
+
+                Tell me about your civic problem.
+                I will help you prepare your complaint.
+
+            </p>
+
+
+
+            <!-- ================= LANGUAGE ================= -->
+
+<div class="language-info">
+
+    🌐 You can speak or type your complaint in
+    English, Hindi, Hinglish, Odia or Roman Odia.
+
+</div>
+
+
+
+
+            <!-- ================= CHAT AREA ================= -->
+
+            <div
+                id="aiChat"
+                class="ai-chat"
+            >
+
+                <!-- Initial AI Message -->
+
+                <div class="ai-message-box">
+
+                    <div class="message-icon">
+                        🤖
+                    </div>
+
+                    <div class="message-content">
+
+                        <strong>
+                            JanSudhar Assistant
+                        </strong>
+
+                        <p>
+                            Hello! 👋 Tell me about the
+                            civic problem you want to report.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= INPUT ================= -->
+
+            <div class="ai-input-area">
+
+
+                <textarea
+                    id="complaintText"
+                    rows="4"
+                    placeholder="Example: Mere area mein road par bahut bada pothole hai..."
+                ></textarea>
+
+
+                <div class="ai-input-buttons">
+
+
+                    <!-- VOICE -->
+
+                    <button
+                        type="button"
+                        id="voiceBtn"
+                        class="voice-btn"
+                    >
+
+                        🎤
+                        <span>
+                            Speak Complaint
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- SEND -->
+
+                    <button
+                        type="button"
+                        id="sendBtn"
+                        class="send-ai-btn"
+                    >
+
+                        ➤
+                        Send
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= AI RESULT ================= -->
+
+            <div
+                id="aiResult"
+                class="ai-result"
+                style="display:none;"
+            >
+
+                <h2>
+                    📋 Complaint Information
+                </h2>
+
+
+                <div class="ai-result-item">
+
+                    <strong>
+                        Complaint Title
+                    </strong>
+
+                    <span id="aiTitle">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="ai-result-item">
+
+                    <strong>
+                        Request Type
+                    </strong>
+
+                    <span id="aiRequestType">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="ai-result-item">
+
+                    <strong>
+                        Category
+                    </strong>
+
+                    <span id="aiCategory">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="ai-result-item">
+
+                    <strong>
+                        Description
+                    </strong>
+
+                    <span id="aiDescription">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="ai-result-item">
+
+                    <strong>
+                        📍 Location
+                    </strong>
+
+                    <span id="aiLocation">
+                        Getting location...
+                    </span>
+
+                </div>
+
+
+
+                <!-- ================= ACTION ================= -->
+
+                <div class="ai-result-actions">
+
+
+                    <button
+                        type="button"
+                        id="editComplaintBtn"
+                        class="edit-ai-btn"
+                    >
+
+                        ✏️ Edit Complaint
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="continueComplaintBtn"
+                        class="continue-ai-btn"
+                    >
+
+                        ✅ Continue to Submit
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= STATUS ================= -->
+
+            <div
+                id="aiStatus"
+                class="ai-status"
+            ></div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/ai-assistant.js"></script>
+
+
+</body>
+
+</html>

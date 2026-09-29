@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Complaint Tracking - JanSudhar</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="tracking-page">
+
+    <!-- Header -->
+    <header>
+        <h1>JanSudhar</h1>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="complaint.html">New Complaint</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+    </header>
+
+
+    <!-- Tracking Section -->
+    <main class="tracking-wrapper">
+
+        <div class="tracking-card">
+
+            <!-- Icon -->
+            <div class="tracking-icon">
+                🔍
+            </div>
+
+            <h2>Track Your Complaint</h2>
+
+            <p class="tracking-subtitle">
+                Enter your Complaint ID to check the current status
+                of your complaint.
+            </p>
+
+
+            <!-- Search Box -->
+            <div class="tracking-search">
+
+                <label for="complaintId">
+                    Complaint ID
+                </label>
+
+                <input
+                    type="text"
+                    id="complaintId"
+                    placeholder="Enter your Complaint ID"
+                >
+
+                <button id="trackBtn">
+                    🔎 Track Complaint
+                </button>
+
+            </div>
+
+
+            <!-- Result -->
+            <div id="result" class="tracking-result" style="display: none;">
+
+                <div class="result-heading">
+                    <span>📋</span>
+                    <h3>Complaint Details</h3>
+                </div>
+
+
+                <div class="complaint-details">
+
+                    <div class="detail-row">
+                        <strong>Complaint ID</strong>
+                        <span id="showComplaintId"></span>
+                    </div>
+
+
+                    <div class="detail-row">
+                        <strong>Category</strong>
+                        <span id="showCategory"></span>
+                    </div>
+
+
+                    <div class="detail-row">
+                        <strong>Description</strong>
+                        <span id="showDescription"></span>
+                    </div>
+
+
+                    <div class="detail-row">
+                        <strong>Location</strong>
+                        <span id="showLocation"></span>
+                    </div>
+
+
+                    <!-- Photo -->
+                    <div class="photo-section">
+
+                        <strong>Complaint Photo</strong>
+
+                        <img
+                            id="showPhoto"
+                            style="display:none;"
+                            alt="Complaint Photo"
+                        >
+
+                    </div>
+
+
+                    <div class="detail-row">
+                        <strong>Status</strong>
+                        <span
+                            id="showStatus"
+                            class="status-badge">
+                        </span>
+                    </div>
+
+
+                    <div class="detail-row">
+                        <strong>Date</strong>
+                        <span id="showDate"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="js/tracking.js"></script>
+
+</body>
+
+</html>

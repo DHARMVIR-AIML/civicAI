@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Data Fusion - JanSudhar</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .data-fusion-page {
+            background: #f5f7fb;
+            min-height: 100vh;
+        }
+
+        .fusion-wrapper {
+            max-width: 1250px;
+            margin: 40px auto;
+            padding: 0 20px 50px;
+        }
+
+        .fusion-header {
+            margin-bottom: 25px;
+        }
+
+        .fusion-header h2 {
+            margin: 0 0 8px;
+            font-size: 30px;
+            color: #111827;
+        }
+
+        .fusion-header p {
+            margin: 0;
+            color: #64748b;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           CARD
+        ========================================= */
+
+        .fusion-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .fusion-card h3 {
+            margin-top: 0;
+            color: #111827;
+        }
+
+        .fusion-card p {
+            color: #64748b;
+        }
+
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .fusion-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 12px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 9px;
+            font-size: 14px;
+            outline: none;
+            background: #ffffff;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.10);
+        }
+
+        .add-area-btn {
+            margin-top: 10px;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 9px;
+            background: #4f46e5;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        .add-area-btn:hover {
+            background: #4338ca;
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================
+           SECTION HEADING
+        ========================================= */
+
+        .section-heading {
+            margin-bottom: 18px;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 6px;
+            color: #111827;
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: #64748b;
+        }
+
+
+        /* =========================================
+           SAVED AREA DATA
+        ========================================= */
+
+        .area-data-section {
+            margin-bottom: 30px;
+        }
+
+        .area-table-wrapper {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow-x: auto;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e5e7eb;
+        }
+
+        .area-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1100px;
+        }
+
+        .area-table th {
+            background: #f8fafc;
+            color: #475569;
+            padding: 15px;
+            text-align: left;
+            font-size: 13px;
+            border-bottom: 1px solid #e5e7eb;
+            white-space: nowrap;
+        }
+
+        .area-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eef2f7;
+            color: #334155;
+            font-size: 14px;
+        }
+
+        .area-table tbody tr:hover {
+            background: #f8fafc;
+        }
+
+
+        /* =========================================
+           CONDITION BADGES
+        ========================================= */
+
+        .condition {
+            display: inline-block;
+            padding: 5px 9px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .good {
+            background: #ecfdf5;
+            color: #059669;
+        }
+
+        .average {
+            background: #fff7ed;
+            color: #c2410c;
+        }
+
+        .poor {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+
+        .unknown {
+            background: #f1f5f9;
+            color: #64748b;
+        }
+
+
+        /* =========================================
+           DELETE BUTTON
+        ========================================= */
+
+        .delete-area-btn {
+            border: none;
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 7px 12px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .delete-area-btn:hover {
+            background: #fecaca;
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================
+           FUSION SUMMARY
+        ========================================= */
+
+        .fusion-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin: 25px 0;
+        }
+
+        .fusion-summary-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            border: 1px solid #e5e7eb;
+            transition: 0.3s ease;
+        }
+
+        .fusion-summary-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+        }
+
+        .fusion-summary-card > span {
+            font-size: 30px;
+        }
+
+        .fusion-summary-card small {
+            color: #6b7280;
+        }
+
+        .fusion-summary-card h3 {
+            margin: 5px 0 0;
+            font-size: 26px;
+            color: #111827;
+        }
+
+
+        /* =========================================
+           ANALYSIS SECTION
+        ========================================= */
+
+        .analysis-section {
+            margin-top: 35px;
+        }
+
+        .analysis-table-container {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow-x: auto;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            border: 1px solid #e5e7eb;
+        }
+
+        .analysis-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1200px;
+        }
+
+        .analysis-table th {
+            background: #f3f4f6;
+            padding: 15px;
+            text-align: left;
+            font-size: 13px;
+            color: #374151;
+            white-space: nowrap;
+        }
+
+        .analysis-table td {
+            padding: 15px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 14px;
+            color: #334155;
+            white-space: nowrap;
+        }
+
+        .analysis-table tr:hover {
+            background: #f9fafb;
+        }
+
+
+        /* =========================================
+           LEVEL / PRIORITY BADGES
+        ========================================= */
+
+        .level-badge,
+        .priority-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .high {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .low {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+
+        /* =========================================
+           CONTEXT SCORE
+        ========================================= */
+
+        .context-score {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 45px;
+            padding: 6px 10px;
+            border-radius: 8px;
+            background: #eef2ff;
+            color: #4338ca;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+
+        /* =========================================
+           RECOMMENDED ACTION
+        ========================================= */
+
+        .recommendation-badge {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .recommendation-badge.high {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .recommendation-badge.medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .recommendation-badge.low {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+
+        /* =========================================
+           VIEW BUTTON
+        ========================================= */
+
+        .view-analysis-btn {
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .view-analysis-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+
+        /* =========================================
+           LOADING
+        ========================================= */
+
+        .loading {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            .fusion-summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .fusion-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .fusion-summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="data-fusion-page">
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <h1>JanSudhar</h1>
+
+    <nav>
+
+        <a href="admin-dashboard.html">
+            Admin Dashboard
+        </a>
+
+        <a href="complaint-management.html">
+            Complaints
+        </a>
+
+        <a href="budget-optimizer.html">
+            Budget Optimizer
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="fusion-wrapper">
+
+
+    <!-- =========================================
+         BACK LINK
+    ========================================== -->
+
+    <a
+        href="admin-dashboard.html"
+        class="back-link"
+    >
+        ← Back to Admin Dashboard
+    </a>
+
+
+    <!-- =========================================
+         PAGE HEADER
+    ========================================== -->
+
+    <div class="fusion-header">
+
+        <h2>
+            Data Fusion
+        </h2>
+
+        <p>
+            Combine demographic and infrastructure
+            information with citizen complaint data
+            for contextual decision support.
+        </p>
+
+    </div>
+
+
+    <!-- =========================================
+         ADD AREA DATA
+    ========================================== -->
+
+    <div class="fusion-card">
+
+        <h3>
+            Add Area Context Data
+        </h3>
+
+        <p>
+            Add demographic and infrastructure
+            information for an area.
+        </p>
+
+
+        <form
+            id="areaDataForm"
+            class="fusion-form"
+        >
+
+
+            <div class="form-group">
+
+                <label for="area">
+                    Area Name
+                </label>
+
+                <input
+                    type="text"
+                    id="area"
+                    placeholder="Example: Badaraghunathpur"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="population">
+                    Population
+                </label>
+
+                <input
+                    type="number"
+                    id="population"
+                    min="0"
+                    placeholder="Example: 15000"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="populationDensity">
+                    Population Density
+                </label>
+
+                <select id="populationDensity">
+
+                    <option value="Low">
+                        Low
+                    </option>
+
+                    <option
+                        value="Medium"
+                        selected
+                    >
+                        Medium
+                    </option>
+
+                    <option value="High">
+                        High
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="roadCondition">
+                    Road Condition
+                </label>
+
+                <select id="roadCondition">
+
+                    <option value="Unknown">
+                        Unknown
+                    </option>
+
+                    <option value="Good">
+                        Good
+                    </option>
+
+                    <option value="Average">
+                        Average
+                    </option>
+
+                    <option value="Poor">
+                        Poor
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="waterInfrastructure">
+                    Water Infrastructure
+                </label>
+
+                <select id="waterInfrastructure">
+
+                    <option value="Unknown">
+                        Unknown
+                    </option>
+
+                    <option value="Good">
+                        Good
+                    </option>
+
+                    <option value="Average">
+                        Average
+                    </option>
+
+                    <option value="Poor">
+                        Poor
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="drainageCondition">
+                    Drainage Condition
+                </label>
+
+                <select id="drainageCondition">
+
+                    <option value="Unknown">
+                        Unknown
+                    </option>
+
+                    <option value="Good">
+                        Good
+                    </option>
+
+                    <option value="Average">
+                        Average
+                    </option>
+
+                    <option value="Poor">
+                        Poor
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="streetLighting">
+                    Street Lighting
+                </label>
+
+                <select id="streetLighting">
+
+                    <option value="Unknown">
+                        Unknown
+                    </option>
+
+                    <option value="Good">
+                        Good
+                    </option>
+
+                    <option value="Average">
+                        Average
+                    </option>
+
+                    <option value="Poor">
+                        Poor
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="existingProjects">
+                    Existing Projects
+                </label>
+
+                <input
+                    type="number"
+                    id="existingProjects"
+                    min="0"
+                    value="0"
+                >
+
+            </div>
+
+
+            <div class="form-group full">
+
+                <label for="dataSource">
+                    Data Source
+                </label>
+
+                <input
+                    type="text"
+                    id="dataSource"
+                    placeholder="Example: Government Dataset / Municipal Record"
+                >
+
+            </div>
+
+
+            <div class="form-group full">
+
+                <button
+                    type="submit"
+                    class="add-area-btn"
+                >
+                    + Add Area Data
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+    <!-- =========================================
+         SAVED AREA DATA
+    ========================================== -->
+
+    <section class="area-data-section">
+
+        <div class="section-heading">
+
+            <h2>
+                Saved Area Data
+            </h2>
+
+            <p>
+                Demographic and infrastructure information
+                currently stored in the system.
+            </p>
+
+        </div>
+
+
+        <div class="area-table-wrapper">
+
+            <table class="area-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Area</th>
+
+                        <th>Population</th>
+
+                        <th>Density</th>
+
+                        <th>Road</th>
+
+                        <th>Water</th>
+
+                        <th>Drainage</th>
+
+                        <th>Lighting</th>
+
+                        <th>Projects</th>
+
+                        <th>Source</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="areaDataTableBody">
+
+                    <tr>
+
+                        <td
+                            colspan="10"
+                            class="loading"
+                        >
+                            Loading area data...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CONTEXTUAL ANALYSIS
+    ========================================== -->
+
+    <section class="analysis-section">
+
+
+        <div class="section-heading">
+
+            <h2>
+                Contextual Analysis
+            </h2>
+
+            <p>
+                Citizen complaints are combined with
+                demographic and infrastructure data
+                to generate contextual insights.
+            </p>
+
+        </div>
+
+
+        <!-- =====================================
+             SUMMARY CARDS
+        ====================================== -->
+
+        <div class="fusion-summary-grid">
+
+
+            <div class="fusion-summary-card">
+
+                <span>📋</span>
+
+                <div>
+
+                    <small>
+                        Total Reported Complaints
+                    </small>
+
+                    <h3 id="fusionTotalComplaints">
+                        0
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="fusion-summary-card">
+
+                <span>🚨</span>
+
+                <div>
+
+                    <small>
+                        High Priority Complaints
+                    </small>
+
+                    <h3 id="fusionHighPriority">
+                        0
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="fusion-summary-card">
+
+                <span>🏗️</span>
+
+                <div>
+
+                    <small>
+                        Infrastructure Issues
+                    </small>
+
+                    <h3 id="fusionInfrastructureIssues">
+                        0
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="fusion-summary-card">
+
+                <span>📊</span>
+
+                <div>
+
+                    <small>
+                        High Context Areas
+                    </small>
+
+                    <h3 id="fusionHighContextAreas">
+                        0
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =====================================
+             ANALYSIS TABLE
+        ====================================== -->
+
+        <div class="analysis-table-container">
+
+            <table class="analysis-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Area</th>
+
+                        <th>Population</th>
+
+                        <th>Complaints</th>
+
+                        <th>High Priority</th>
+
+                        <th>Medium Priority</th>
+
+                        <th>Low Priority</th>
+
+                        <th>Infrastructure Issues</th>
+
+                        <th>Demand Level</th>
+
+                        <th>Context Score</th>
+
+                        <th>Context Level</th>
+
+                        <th>Recommended Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="analysisTableBody">
+
+                    <tr>
+
+                        <td
+                            colspan="11"
+                            class="loading"
+                        >
+                            Loading contextual analysis...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<script src="js/data-fusion.js"></script>
+
+
+</body>
+
+</html>

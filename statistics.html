@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Statistics - JanSudhar</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="admin-dashboard-page">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="admin-dashboard-header">
+
+        <div class="admin-brand">
+
+            <div class="admin-brand-icon">
+                🛡️
+            </div>
+
+            <div>
+                <h2>JanSudhar</h2>
+                <span>Admin Panel</span>
+            </div>
+
+        </div>
+
+
+        <div class="admin-header-right">
+
+            <div class="admin-user-info">
+
+                <span class="admin-user-icon">
+                    👤
+                </span>
+
+                <div>
+
+                    <strong id="adminName">
+                        Admin
+                    </strong>
+
+                    <small>
+                        Administrator
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="adminLogoutBtn"
+                class="admin-logout-btn">
+
+                🚪 Logout
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="admin-dashboard-container">
+
+
+        <!-- BACK BUTTON -->
+
+        <button
+            id="backToDashboardBtn"
+            class="complaint-back-btn">
+
+            ← Back to Dashboard
+
+        </button>
+
+
+        <!-- ================= PAGE HEADING ================= -->
+
+        <section class="admin-welcome-section">
+
+            <span class="admin-section-label">
+                JanSudhar ANALYTICS
+            </span>
+
+            <h1>
+                Statistics & Reports
+            </h1>
+
+            <p>
+                Analyze civic complaints, priorities and departmental workload.
+            </p>
+
+        </section>
+
+
+        <!-- ================= SUMMARY CARDS ================= -->
+
+        <section class="admin-stats-grid">
+
+
+            <!-- TOTAL -->
+
+            <div class="admin-stat-card total">
+
+                <div class="admin-stat-icon">
+                    📋
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Complaints
+                    </span>
+
+                    <h2 id="statTotal">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- PENDING -->
+
+            <div class="admin-stat-card pending">
+
+                <div class="admin-stat-icon">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <span>
+                        Pending
+                    </span>
+
+                    <h2 id="statPending">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- IN PROGRESS -->
+
+<div class="admin-stat-card in-progress">
+
+    <div class="admin-stat-icon">
+        🔄
+    </div>
+
+    <div>
+        <span>
+            In Progress
+        </span>
+
+        <h2 id="statProgress">
+            0
+        </h2>
+    </div>
+
+</div>
+
+            <!-- RESOLVED -->
+
+            <div class="admin-stat-card resolved">
+
+                <div class="admin-stat-icon">
+                    ✅
+                </div>
+
+                <div>
+
+                    <span>
+                        Resolved
+                    </span>
+
+                    <h2 id="statResolved">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ================= AI STATISTICS ================= -->
+
+        <section class="admin-dashboard-section">
+
+            <div class="admin-section-heading">
+
+                <div>
+
+                    <span class="admin-section-label">
+                        ARTIFICIAL INTELLIGENCE
+                    </span>
+
+                    <h2>
+                        AI Priority Analysis
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-ai-overview-grid">
+
+
+                <!-- HIGH -->
+
+                <div class="admin-ai-card">
+
+                    <div class="admin-ai-card-icon">
+                        🔴
+                    </div>
+
+                    <div>
+
+                        <span>
+                            High Priority
+                        </span>
+
+                        <h3 id="statHighPriority">
+                            0
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MEDIUM -->
+
+                <div class="admin-ai-card">
+
+                    <div class="admin-ai-card-icon">
+                        🟠
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Medium Priority
+                        </span>
+
+                        <h3 id="statMediumPriority">
+                            0
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOW -->
+
+                <div class="admin-ai-card">
+
+                    <div class="admin-ai-card-icon">
+                        🟢
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Low Priority
+                        </span>
+
+                        <h3 id="statLowPriority">
+                            0
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOP CATEGORY -->
+
+                <div class="admin-ai-card">
+
+                    <div class="admin-ai-card-icon">
+                        🤖
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Most Detected Category
+                        </span>
+
+                        <h3 id="statTopCategory">
+                            No Data
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CATEGORY STATISTICS ================= -->
+
+        <section class="admin-dashboard-section">
+
+            <div class="admin-section-heading">
+
+                <div>
+
+                    <span class="admin-section-label">
+                        CATEGORY ANALYSIS
+                    </span>
+
+                    <h2>
+                        Complaints by Category
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="categoryStatistics"
+                class="statistics-list">
+
+                <div class="statistics-empty">
+                    Loading category statistics...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DEPARTMENT STATISTICS ================= -->
+
+        <section class="admin-dashboard-section">
+
+            <div class="admin-section-heading">
+
+                <div>
+
+                    <span class="admin-section-label">
+                        DEPARTMENT ANALYSIS
+                    </span>
+
+                    <h2>
+                        Department Workload
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="departmentStatistics"
+                class="statistics-list">
+
+                <div class="statistics-empty">
+                    Loading department statistics...
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/statistics.js"></script>
+
+</body>
+
+</html>

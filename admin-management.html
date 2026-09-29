@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Admins - JanSudhar</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body class="admin-dashboard-page">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="admin-dashboard-header">
+
+        <div class="admin-brand">
+
+            <div class="admin-brand-icon">
+                🛡️
+            </div>
+
+            <div>
+                <h2>JanSudhar</h2>
+                <span>Admin Panel</span>
+            </div>
+
+        </div>
+
+
+        <div class="admin-header-right">
+
+            <div class="admin-user-info">
+
+                <span class="admin-user-icon">
+                    👤
+                </span>
+
+                <div>
+
+                    <strong id="adminName">
+                        Admin
+                    </strong>
+
+                    <small id="adminRole">
+                        Administrator
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="adminLogoutBtn"
+                class="admin-logout-btn"
+                type="button"
+            >
+                🚪 Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="admin-dashboard-container">
+
+
+        <!-- =================================================
+             PAGE TITLE
+        ================================================== -->
+
+        <section class="admin-welcome-section">
+
+            <div>
+
+                <span class="admin-section-label">
+                    ADMINISTRATION
+                </span>
+
+                <h1>
+                    Manage Admins
+                </h1>
+
+                <p>
+                    View registered users and manage administrator accounts.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BACK BUTTON
+        ================================================== -->
+
+        <button
+            id="backToDashboardBtn"
+            class="admin-view-all-btn"
+            type="button"
+            style="margin-bottom: 25px;"
+        >
+            ← Back to Dashboard
+        </button>
+
+
+
+        <!-- =================================================
+             MESSAGE
+        ================================================== -->
+
+        <div
+            id="adminManagementMessage"
+            class="admin-management-message"
+            style="display: none;"
+        >
+        </div>
+
+
+
+        <!-- =================================================
+             USERS SECTION
+        ================================================== -->
+
+        <section class="admin-dashboard-section">
+
+
+            <div class="admin-section-heading">
+
+                <div>
+
+                    <span class="admin-section-label">
+                        USER MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Registered Users
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TABLE
+            ================================================== -->
+
+            <div class="admin-recent-table-wrapper">
+
+                <table class="admin-recent-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                #
+                            </th>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Role
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="usersTableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="5"
+                                class="admin-empty-state"
+                            >
+                                Loading users...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+        <!-- =====================================================
+     MAKE ADMIN DEPARTMENT MODAL
+====================================================== -->
+
+<div
+    id="departmentModal"
+    class="department-modal"
+    style="display: none;"
+>
+
+    <div class="department-modal-content">
+
+        <div class="department-modal-header">
+
+            <div>
+                <span class="admin-section-label">
+                    ADMIN ACCESS
+                </span>
+
+                <h2>
+                    Assign Departments
+                </h2>
+
+                <p>
+                    Select the departments this admin will be
+                    allowed to manage.
+                </p>
+            </div>
+
+            <button
+                type="button"
+                id="closeDepartmentModal"
+                class="department-close-btn"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+        <!-- DEPARTMENTS -->
+
+        <div class="department-checkbox-container">
+
+            <label class="department-checkbox">
+                <input
+                    type="checkbox"
+                    value="Road & Infrastructure Department"
+                    class="department-checkbox-input"
+                >
+                <span>
+                    Road & Infrastructure Department
+                </span>
+            </label>
+
+
+            <label class="department-checkbox">
+                <input
+                    type="checkbox"
+                    value="Electricity Department"
+                    class="department-checkbox-input"
+                >
+                <span>
+                    Electricity Department
+                </span>
+            </label>
+
+
+            <label class="department-checkbox">
+                <input
+                    type="checkbox"
+                    value="Water Supply Department"
+                    class="department-checkbox-input"
+                >
+                <span>
+                    Water Supply Department
+                </span>
+            </label>
+
+
+            <label class="department-checkbox">
+                <input
+                    type="checkbox"
+                    value="Municipal Waste Management Department"
+                    class="department-checkbox-input"
+                >
+                <span>
+                    Municipal Waste Management Department
+                </span>
+            </label>
+
+
+            <label class="department-checkbox">
+                <input
+                    type="checkbox"
+                    value="Street Lighting Department"
+                    class="department-checkbox-input"
+                >
+                <span>
+                    Street Lighting Department
+                </span>
+            </label>
+
+
+            <label class="department-checkbox">
+                <input
+                    type="checkbox"
+                    value="Drainage & Sewerage Department"
+                    class="department-checkbox-input"
+                >
+                <span>
+                    Drainage & Sewerage Department
+                </span>
+            </label>
+
+
+            <label class="department-checkbox">
+                <input
+                    type="checkbox"
+                    value="Education Department"
+                    class="department-checkbox-input"
+                >
+                <span>
+                    Education Department
+                </span>
+            </label>
+
+
+            <label class="department-checkbox">
+                <input
+                    type="checkbox"
+                    value="General Civic Department"
+                    class="department-checkbox-input"
+                >
+                <span>
+                    General Civic Department
+                </span>
+            </label>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="department-modal-actions">
+
+            <button
+                type="button"
+                id="cancelDepartmentBtn"
+                class="admin-view-all-btn"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                id="confirmMakeAdminBtn"
+                class="admin-action-btn"
+            >
+                ✓ Make Admin
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/admin-management.js"></script>
+
+
+    <!-- =====================================================
+         BACK BUTTON SCRIPT
+    ====================================================== -->
+
+    <script>
+
+        const backButton =
+            document.getElementById("backToDashboardBtn");
+
+        if (backButton) {
+
+            backButton.addEventListener("click", () => {
+
+                window.location.href =
+                    "admin-dashboard.html";
+
+            });
+
+        }
+
+
+        // =================================================
+        // SHOW LOGGED-IN ADMIN NAME
+        // =================================================
+
+        const adminData =
+            localStorage.getItem("adminData");
+
+        if (adminData) {
+
+            try {
+
+                const admin =
+                    JSON.parse(adminData);
+
+                const adminName =
+                    document.getElementById("adminName");
+
+                const adminRole =
+                    document.getElementById("adminRole");
+
+
+                if (adminName && admin.name) {
+
+                    adminName.textContent =
+                        admin.name;
+
+                }
+
+
+                if (adminRole && admin.role) {
+
+                    if (admin.role === "superadmin") {
+
+                        adminRole.textContent =
+                            "Super Administrator";
+
+                    } else {
+
+                        adminRole.textContent =
+                            "Administrator";
+
+                    }
+
+                }
+
+            } catch (error) {
+
+                console.log(
+                    "Admin Data Error:",
+                    error
+                );
+
+            }
+
+        }
+
+
+        // =================================================
+        // LOGOUT
+        // =================================================
+
+        const logoutButton =
+            document.getElementById("adminLogoutBtn");
+
+        if (logoutButton) {
+
+            logoutButton.addEventListener(
+                "click",
+                () => {
+
+                    localStorage.removeItem(
+                        "adminToken"
+                    );
+
+                    localStorage.removeItem(
+                        "adminData"
+                    );
+
+                    window.location.href =
+                        "admin-login.html";
+
+                }
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>

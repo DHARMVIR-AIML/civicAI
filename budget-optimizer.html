@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CivicAI - Budget Optimizer</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🏛️
+            <div>
+                <strong>JanSudhar</strong>
+                <small>Smart Civic Management</small>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="complaint-management.html">Complaints</a>
+            <a href="budget-optimizer.html" class="active">
+                Budget Optimizer
+            </a>
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <!-- HEADER -->
+
+        <section class="hero">
+
+            <div class="badge">
+                PS2 • CONSTRAINT-AWARE PORTFOLIO OPTIMIZATION
+            </div>
+
+            <h1>
+                Smart Budget
+                <span>Optimizer</span>
+            </h1>
+
+            <p>
+                JanSudhar analyzes real citizen complaints, priority,
+                complaint demand and departments to distribute the
+                available development budget automatically.
+            </p>
+
+        </section>
+
+
+        <!-- BUDGET INPUT -->
+
+        <section class="budget-card">
+
+            <div class="budget-icon">
+                💰
+            </div>
+
+            <div class="budget-content">
+
+                <label>
+                    Total Available Development Budget
+                </label>
+
+                <div class="budget-input">
+
+                    <span>₹</span>
+
+                    <input
+                        type="number"
+                        id="totalBudget"
+                        placeholder="Enter total budget"
+                        min="1"
+                    >
+
+                </div>
+
+                <p>
+                    Example: 1000000 = ₹10,00,000
+                </p>
+
+            </div>
+
+
+            <button
+                class="optimize-btn"
+                onclick="optimizeFromComplaints()"
+            >
+                ⚡ Analyze & Distribute Budget
+            </button>
+
+        </section>
+
+
+        <!-- LOADING -->
+
+        <div
+            id="loading"
+            class="loading"
+        >
+            <div class="loader"></div>
+
+            <p>
+                Analyzing complaints and calculating optimal budget distribution...
+            </p>
+        </div>
+
+
+        <!-- DASHBOARD STATS -->
+
+        <section
+            id="dashboard"
+            class="dashboard hidden"
+        >
+
+            <div class="stat">
+
+                <span>📋</span>
+
+                <div>
+                    <small>Total Complaints</small>
+                    <strong id="totalComplaints">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span>🚨</span>
+
+                <div>
+                    <small>High Priority</small>
+                    <strong id="highPriority">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span>🏢</span>
+
+                <div>
+                    <small>Departments</small>
+                    <strong id="departmentCount">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span>💰</span>
+
+                <div>
+                    <small>Budget Allocated</small>
+                    <strong id="allocatedBudget">
+                        ₹0
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- OPTIMIZED PORTFOLIO -->
+
+        <section
+            id="resultSection"
+            class="result-section hidden"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <span>
+                        OPTIMIZED PORTFOLIO
+                    </span>
+
+                    <h2>
+                        Recommended Budget Distribution
+                    </h2>
+
+                    <p>
+                        Allocation is calculated from actual complaint
+                        demand and priority information.
+                    </p>
+
+                </div>
+
+                <div class="optimized">
+                    ✓ Optimized
+                </div>
+
+            </div>
+
+
+            <!-- TOTAL BUDGET -->
+
+            <div class="budget-summary">
+
+                <div>
+
+                    <small>
+                        Available Budget
+                    </small>
+
+                    <strong id="availableBudget">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <small>
+                        Allocated
+                    </small>
+
+                    <strong id="summaryAllocated">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <small>
+                        Remaining
+                    </small>
+
+                    <strong id="remainingBudget">
+                        ₹0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- DEPARTMENT LIST -->
+
+            <div id="departmentResults"></div>
+
+
+            <!-- LOCATION ANALYSIS -->
+
+            <div class="location-section">
+
+                <div class="section-title">
+
+                    <h3>
+                        📍 Geographic Demand
+                    </h3>
+
+                    <p>
+                        Areas with higher complaint demand are highlighted
+                        for planning consideration.
+                    </p>
+
+                </div>
+
+                <div id="locationResults"></div>
+
+            </div>
+
+
+            <!-- EXPLANATION -->
+
+            <div class="explanation">
+
+                <h3>
+                    🧠 How JanSudhar Distributed the Budget
+                </h3>
+
+                <div class="logic-grid">
+
+                    <div>
+                        <strong>Complaint Demand</strong>
+                        <p>
+                            More reported complaints increase the
+                            allocation need.
+                        </p>
+                    </div>
+
+                    <div>
+                        <strong>Priority</strong>
+                        <p>
+                            High-priority complaints receive greater
+                            importance.
+                        </p>
+                    </div>
+
+                    <div>
+                        <strong>Public Benefit</strong>
+                        <p>
+                            Allocation considers the overall civic
+                            impact of the issue.
+                        </p>
+                    </div>
+
+                    <div>
+                        <strong>Geographical Need</strong>
+                        <p>
+                            Complaint locations are analyzed to identify
+                            areas requiring attention.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/budget-optimizer.js"></script>
+
+</body>
+
+</html>
